@@ -1,6 +1,6 @@
 {
   "name": "react-native-close-button",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "modules",
   "description": "Module for customize behavior when close button has pressed",
   "main": "src/index.ts",
