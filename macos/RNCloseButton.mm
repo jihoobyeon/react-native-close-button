@@ -1,9 +1,9 @@
-#import "CloseButton.h"
+#import "RNCloseButton.h"
 
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 
-@implementation CloseButton { RCTResponseSenderBlock _toDo; }
+@implementation RNCloseButton { RCTResponseSenderBlock _toDo; }
 RCT_EXPORT_MODULE()
 
 // Don't compile this code when we build for the old architecture.
@@ -36,7 +36,7 @@ RCT_EXPORT_MODULE()
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
     (const facebook::react::ObjCTurboModule::InitParams &)params
 {
-	return std::make_shared<facebook::react::NativeCloseButtonSpecJSI>(params);
+	return std::make_shared<facebook::react::NativeRNCloseButtonSpecJSI>(params);
 }
 #endif
 

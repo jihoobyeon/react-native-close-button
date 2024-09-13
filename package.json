@@ -38,12 +38,18 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": ">=0.74.0",
-    "react-native-macos": ">=0.74.0"
+    "react-native-macos": ">=0.74.0",
+    "react-native-windows": ">=0.74.0"
   },
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@3.6.4",
   "codegenConfig": {
     "name": "RNCloseButtonSpec",
     "type": "modules",
-    "jsSrcsDir": "src"
+    "jsSrcsDir": "src",
+    "windows": {
+      "namespace": "RNCloseButtonCodegen",
+      "outputDirectory": "windows/RNCloseButton/codegen",
+      "separateDataTypes": true
+    }
   }
 }

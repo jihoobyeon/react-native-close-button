@@ -1,9 +1,9 @@
-const CloseButton = require('./NativeCloseButton').default;
+const RNCloseButton = require('./NativeRNCloseButton').default;
 
 export function doBeforeClose(toDo: () => void): void {
-  return CloseButton.doBeforeClose(toDo);
+  return RNCloseButton.doBeforeClose(toDo);
 }
 
 export function closeNow(): void {
-  return CloseButton.closeNow();
+  return RNCloseButton.closeNow();
 }
