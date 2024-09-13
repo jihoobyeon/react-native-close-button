@@ -5,18 +5,26 @@ Module for customize behavior when close button has pressed
 ## Installation
 
 ```sh
-npm install react-native-close-button
+yarn add react-native-close-button
 ```
 
 ## Usage
 
 
 ```js
-import { multiply } from 'react-native-close-button';
+import { closeNow, doBeforeClose } from 'react-native-close-button';
 
-// ...
+export default function App(): JSX.Element {
+	doBeforeClose(async () => { // If you use doBeforeClose(), it automatically disables close button's ability to close window.
+		Alert.alert('TEST', 'Test.');
+		await new Promise(_ => setTimeout(_, 5000));
+    closeNow(); // If you want to close app's window, you have to call closeNow().
+	});
+	return (
+		<View />
+  );
+}
 
-const result = multiply(3, 7);
 ```
 
 
