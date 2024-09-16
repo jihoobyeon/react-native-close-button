@@ -28,6 +28,8 @@ namespace winrt::RNCloseButton
     return pw.hwnd;
   }
 
+  std::weak_ptr<RNCloseButton>WeakInstance;
+
   LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     if (msg == WM_CLOSE) {
       std::shared_ptr<RNCloseButton> pThis = WeakInstance.lock();
