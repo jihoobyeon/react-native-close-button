@@ -30,7 +30,7 @@ namespace winrt::RNCloseButton
 
   LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     if (msg == WM_CLOSE) {
-      RNCloseButton *pThis = (RNCloseButton *)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+      std::shared_ptr<RNCloseButton> pThis = WeakInstance.lock();
       if (pThis && pThis->toDo) pThis->toDo();
       return 0;
     }
@@ -39,8 +39,9 @@ namespace winrt::RNCloseButton
 
   void RNCloseButton::doBeforeClose(std::function<void()> const& toDo) noexcept {
     this->toDo = toDo;
-    SetWindowLongPtr(getHwnd(), GWLP_USERDATA, (LONG_PTR)this);
     SetWindowLongPtr(getHwnd(), GWLP_WNDPROC, (LONG_PTR)WindowProc);
+    WeakInstance = shared_from_this();
+    SetWindowLongPtr(getHwnd(), GWLP_USERDATA, (LONG_PTR)this);
   }
 
   void RNCloseButton::closeNow() noexcept {
