@@ -13,7 +13,7 @@
 namespace winrt::RNCloseButton
 {
   REACT_MODULE(RNCloseButton)
-  struct RNCloseButton
+  struct RNCloseButton : std::enable_shared_from_this<RNCloseButton>
   {
     using ModuleSpec = RNCloseButtonCodegen::RNCloseButtonSpec;
 
