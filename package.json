@@ -1,6 +1,6 @@
 {
   "name": "react-native-close-button",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "type": "modules",
   "description": "Module for customize behavior when close button has pressed",
   "main": "src/index.ts",
@@ -64,12 +64,12 @@
   },
   "packageManager": "yarn@3.6.4",
   "codegenConfig": {
-    "name": "RNCloseButtonSpec",
+    "name": "CloseButtonSpec",
     "type": "modules",
     "jsSrcsDir": "src",
     "windows": {
-      "namespace": "RNCloseButtonCodegen",
-      "outputDirectory": "windows/RNCloseButton/codegen",
+      "namespace": "CloseButtonCodegen",
+      "outputDirectory": "windows/CloseButton/codegen",
       "separateDataTypes": true
     }
   }
