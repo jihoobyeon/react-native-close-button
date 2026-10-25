@@ -1,6 +1,6 @@
-#import "RNCloseButton.h"
+#import "CloseButton.h"
 
-@implementation RNCloseButton { RCTResponseSenderBlock _toDo; }
+@implementation CloseButton { RCTResponseSenderBlock _toDo; }
 - (void)doBeforeClose:(RCTResponseSenderBlock)toDo {
 	_toDo = toDo;
 	
@@ -29,7 +29,7 @@
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
     (const facebook::react::ObjCTurboModule::InitParams &)params
 {
-	return std::make_shared<facebook::react::NativeRNCloseButtonSpecJSI>(params);
+	return std::make_shared<facebook::react::NativeCloseButtonSpecJSI>(params);
 }
 
 + (NSString *)moduleName
