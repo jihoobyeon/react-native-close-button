@@ -1,5 +1,5 @@
 #import <CloseButtonSpec/CloseButtonSpec.h>
 
-@interface CloseButton : NSObject <NativeCloseButtonSpec, NSWindowDelegate>
+@interface CloseButton : NativeCloseButtonSpecBase <NativeCloseButtonSpec, NSWindowDelegate>
 
 @end

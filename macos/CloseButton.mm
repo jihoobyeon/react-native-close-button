@@ -1,29 +1,44 @@
 #import "CloseButton.h"
 
-@implementation CloseButton { RCTResponseSenderBlock _toDo; }
-- (void)doBeforeClose:(RCTResponseSenderBlock)toDo {
-	_toDo = toDo;
-	
-	dispatch_async(dispatch_get_main_queue(), ^{
+@implementation CloseButton { BOOL _allowClose; }
+- (void)install {
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self installWindowDelegate];
+    });
+}
+
+- (void)installWindowDelegate {
 		NSWindow *window = [NSApp mainWindow];
-		if (window) [window setDelegate:self];
-	});
+		
+		if (window) {
+				window.delegate = self;
+		}
 }
 
 - (BOOL)windowShouldClose:(NSWindow *)window {
-	if (_toDo)
-		dispatch_async(dispatch_get_main_queue(), ^{
-			self->_toDo(@[[NSNull null]]);
-			self->_toDo = nil;
-		});
-	return NO;
+    // closeNow() triggred
+    if (_allowClose) {
+        _allowClose = NO;
+        return YES;
+    }
+	
+    // send close event to JavaScript side
+    [self emitOnBeforeClose];
+	
+    // do not close app window until JavaScript does
+    return NO;
 }
 
 - (void)closeNow {
-	dispatch_async(dispatch_get_main_queue(), ^{
-    NSWindow *window = [NSApp mainWindow];
-		if (window) [window close];
-  });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSWindow *window = [NSApp mainWindow];
+				
+        if (window) {
+            self->_allowClose = YES;
+            [window close];
+        }
+    });
 }
 
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:

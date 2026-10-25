@@ -1,7 +1,12 @@
-const CloseButton = require('./NativeCloseButton').default;
+import CloseButton from './NativeCloseButton';
+import { useEffect } from 'react';
 
-export function doBeforeClose(toDo: () => void): void {
-  return CloseButton.doBeforeClose(toDo);
+export function useBeforeClose(toDo: () => void): void {
+  useEffect(() => {
+    const subscription = CloseButton.onBeforeClose(toDo);
+    CloseButton.install();
+    return () => subscription.remove();
+  }, [toDo]);
 }
 
 export function closeNow(): void {

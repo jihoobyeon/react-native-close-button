@@ -1,8 +1,8 @@
-import type { TurboModule } from 'react-native';
-import { TurboModuleRegistry } from 'react-native';
+import { TurboModuleRegistry, type CodegenTypes, type TurboModule } from 'react-native';
 
 export interface Spec extends TurboModule {
-  doBeforeClose(toDo: () => void): void;
+  readonly onBeforeClose: CodegenTypes.EventEmitter<void>;
+  install(): void;
   closeNow(): void;
 }
 
