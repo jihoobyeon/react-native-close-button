@@ -6,4 +6,4 @@ export interface Spec extends TurboModule {
   closeNow(): void;
 }
 
-export default TurboModuleRegistry.getEnforcing<Spec>('RNCloseButton');
+export default TurboModuleRegistry.getEnforcing<Spec>('CloseButton');
