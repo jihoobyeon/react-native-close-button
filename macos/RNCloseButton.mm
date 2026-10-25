@@ -1,13 +1,6 @@
 #import "RNCloseButton.h"
 
-#import <Foundation/Foundation.h>
-#import <AppKit/AppKit.h>
-
 @implementation RNCloseButton { RCTResponseSenderBlock _toDo; }
-RCT_EXPORT_MODULE()
-
-// Don't compile this code when we build for the old architecture.
-#ifdef RCT_NEW_ARCH_ENABLED
 - (void)doBeforeClose:(RCTResponseSenderBlock)toDo {
 	_toDo = toDo;
 	
@@ -38,6 +31,10 @@ RCT_EXPORT_MODULE()
 {
 	return std::make_shared<facebook::react::NativeRNCloseButtonSpecJSI>(params);
 }
-#endif
+
++ (NSString *)moduleName
+{
+  return @"CloseButton";
+}
 
 @end
