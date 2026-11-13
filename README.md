@@ -12,17 +12,16 @@ yarn add react-native-close-button
 
 
 ```js
-import { closeNow, doBeforeClose } from 'react-native-close-button';
+import { closeNow, onBeforeClose } from 'react-native-close-button';
 
-export default function App(): JSX.Element {
-	doBeforeClose(async () => { // If you use doBeforeClose(), it automatically disables close button's ability to close window.
-		Alert.alert('TEST', 'Test.');
-		await new Promise(_ => setTimeout(_, 5000));
-    closeNow(); // If you want to close app's window, you have to call closeNow().
-	});
-	return (
-		<View />
-  );
+export default function App() {
+	useBeforeClose(() => 
+		Alert.alert('TEST', 'Testing RNCloseButton', [
+			{ text: 'Cancel', onPress: () => {} },
+			{ text: 'Close', onPress: () => closeNow() }
+		]));
+
+	return <View />;
 }
 
 ```
