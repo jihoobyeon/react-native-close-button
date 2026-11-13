@@ -12,7 +12,7 @@ yarn add react-native-close-button
 
 
 ```js
-import { closeNow, onBeforeClose } from 'react-native-close-button';
+import { closeNow, useBeforeClose } from 'react-native-close-button';
 
 export default function App() {
 	useBeforeClose(() => 
