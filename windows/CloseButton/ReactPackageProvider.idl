@@ -1,4 +1,4 @@
-namespace RNCloseButton
+namespace CloseButton
 {
   [webhosthidden]
   [default_interface]

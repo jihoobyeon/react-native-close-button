@@ -5,11 +5,11 @@
 #include "ReactPackageProvider.g.cpp"
 #endif
 
-#include "RNCloseButton.h"
+#include "CloseButton.h"
 
 using namespace winrt::Microsoft::ReactNative;
 
-namespace winrt::RNCloseButton::implementation
+namespace winrt::CloseButton::implementation
 {
 
 void ReactPackageProvider::CreatePackage(IReactPackageBuilder const &packageBuilder) noexcept

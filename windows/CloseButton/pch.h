@@ -28,3 +28,7 @@
 #include <tchar.h>
 
 // Reference additional headers your project requires here
+#include <commctrl.h>
+#include <atomic>
+
+#pragma comment(lib, "Comctl32.lib")

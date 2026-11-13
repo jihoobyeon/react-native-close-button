@@ -4,7 +4,7 @@
 
 using namespace winrt::Microsoft::ReactNative;
 
-namespace winrt::RNCloseButton::implementation
+namespace winrt::CloseButton::implementation
 {
 
 struct ReactPackageProvider : ReactPackageProviderT<ReactPackageProvider>
@@ -14,11 +14,11 @@ struct ReactPackageProvider : ReactPackageProviderT<ReactPackageProvider>
   void CreatePackage(IReactPackageBuilder const &packageBuilder) noexcept;
 };
 
-} // namespace winrt::RNCloseButton::implementation
+} // namespace winrt::CloseButton::implementation
 
-namespace winrt::RNCloseButton::factory_implementation
+namespace winrt::CloseButton::factory_implementation
 {
 
 struct ReactPackageProvider : ReactPackageProviderT<ReactPackageProvider, implementation::ReactPackageProvider> {};
 
-} // namespace winrt::RNCloseButton::factory_implementation
+} // namespace winrt::CloseButton::factory_implementation
